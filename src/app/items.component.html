@@ -1,0 +1,9 @@
+<input type="text" (keyup.enter)="searchItem($event)" #seachInput />
+<p *ngIf="!isItemsLoaded">Loading ...</p>
+<div *ngIf="isItemsLoaded">
+    <ul *ngFor="let item of items;">
+        <li>{{item.id}} - {{item.name}}</li>
+        <button [routerLink]="['/item-detail', item.id]">Detail</button>
+    </ul>
+    <button (click)="Add">Add more</button>
+</div>
